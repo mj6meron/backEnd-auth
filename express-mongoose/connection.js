@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 //connection URL
-const databaseURL = 'mongodb+srv://meron:meron123@initdatabase.muy0v.mongodb.net/mercato?retryWrites=true&w=majority'
+const username = "new"
+const password = "new123"
+const dataBasename = "mercato"
+
+const databaseURL = `mongodb+srv://${username}:${password}@initdatabase.muy0v.mongodb.net/${dataBasename}?retryWrites=true&w=majority`
 
 async function main(){
     console.log('we are connected to DB!')
