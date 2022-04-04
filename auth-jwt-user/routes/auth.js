@@ -31,7 +31,15 @@ router.post('/register', async (req, res) => {
         password: hashPssword
     });
 
+
     try {
+        /*
+        *  Save the user
+        *  Redirect to batcave
+        * response object containing :
+                *  savedUser
+                * token
+        */
         const savedUser = await user.save();
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
         res.json({ user: savedUser, redirect: 'batcave', token });
@@ -64,7 +72,7 @@ router.post('/login', async (req, res) => {
 
     // Create and assign token
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).json({token: token, redirect: 'batcave'});
+    res.header('auth-token', token).json({token: token, redirect: 'batcave'}); // attached token to the header
 
 });
 
