@@ -1,25 +1,20 @@
 // forms
-const signUpForm = document.querySelector('#sign-up-form');
-const loginForm = document.querySelector('#login-form');
+const signUpForm = document.querySelector('#registerForm');
 
 // Sign up inputs
-const signUpName = document.querySelector('#sign-up-name');
-const signUpEmail = document.querySelector('#sign-up-email');
-const signUpPassword = document.querySelector('#sign-up-password');
-
-// Login inputs
-const loginEmail = document.querySelector('#email');
-const loginPassword = document.querySelector('#password');
+const registerName = document.querySelector('#name');
+const registerEmail = document.querySelector('#email');
+const registerEmployment = document.querySelector('#employment');
 
 // error messages
 const errorMsg = document.querySelector('#error');
 
 signUpForm.addEventListener('submit', e => {
     e.preventDefault();
-    const signUpDetails = {
-        name: signUpName.value,
-        email: signUpEmail.value,
-        password: signUpPassword.value
+    const registerDetails = {
+        name: registerName.value,
+        email: registerEmail.value,
+        employment: registerEmployment.value
     };
 
     fetch('/api/user/register', {
@@ -27,7 +22,7 @@ signUpForm.addEventListener('submit', e => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(signUpDetails)
+        body: JSON.stringify(registerDetails)
     })
     .then(res => res.json())
     .then(response => { 
@@ -41,6 +36,8 @@ signUpForm.addEventListener('submit', e => {
         }
     });
 });
+
+/* 
 
 loginForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -67,3 +64,5 @@ loginForm.addEventListener('submit', e => {
         }
     });
 });
+
+ */

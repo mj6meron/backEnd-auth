@@ -4,3 +4,4 @@ fetch('/api/secure', {
         'auth-token': localStorage.getItem('auth-token')
     }
 });
+
