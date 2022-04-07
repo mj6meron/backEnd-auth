@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
     const user = new User({
         name: req.body.name,
         email: req.body.email,
-        employment: req.body.email
+        employment: req.body.employment
     });
 
 
@@ -38,8 +38,7 @@ router.post('/register', async (req, res) => {
         const savedUser = await user.save();
         // then we create and assign token during registration to redirect to secure
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-      //res.json({ user: savedUser, redirect: 'batcave', token });
-        res.header('auth-token', token).json({token: token, redirect: 'batcave'});
+        res.header('auth-token', token).json({token: token, redirect: 'securePage'});
         signale.complete(savedUser)
     } catch (err) {
         res.status(400).json(err);

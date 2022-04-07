@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
         //  This makes sure that every api call has a token and varified
         console.log(token);
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-        console.log(verified);
+        console.log('varified   --->  ', verified);
         req.user = verified;
         next(); // makes sure that the node (chromium process isnt interupted)
     } catch (error) {

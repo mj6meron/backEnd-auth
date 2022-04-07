@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const pages = require('./routes/pages')
 const authRoute = require('./routes/auth')
 const secureRoute = require('./routes/secure')
+const getDetails = require('./routes/getDetails')
 const signale = require('signale')
 const PORT = process.env.PORT || 3000
 const app = express()
@@ -24,7 +25,7 @@ app.use(express.static('public'))
 app.use('/api/user', authRoute)
 app.use('/api/secure', secureRoute)
 app.use('/', pages)
-
+app.use('/getDetails', getDetails)
 
 // run the server
 app.listen(PORT, ()=>{

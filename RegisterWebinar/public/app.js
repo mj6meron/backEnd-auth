@@ -37,6 +37,7 @@ signUpForm.addEventListener('submit', e => {
     });
 });
 
+
 /* 
 
 loginForm.addEventListener('submit', e => {
